@@ -10,6 +10,8 @@ function loadProject(projectName) {
   const imageMap = {
     'project1': ['image1.jpg', 'image2.jpg'],
     'project2': ['image1.jpg', 'image2.jpg'],
+    'project3': ['image1.jpg', 'image2.jpg'],
+    'project4': ['image1.jpg', 'image2.jpg'],
   };
 
   images = imageMap[projectName];

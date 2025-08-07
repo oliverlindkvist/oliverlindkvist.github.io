@@ -8,7 +8,7 @@ function loadProject(projectName) {
 
   // You manually list the image filenames for each project
   const imageMap = {
-    'project1': ['image1.jpg', 'image2.jpg'],
+    'project1': ['image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg',],
     'project2': ['image1.jpg', 'image2.jpg'],
     'project3': ['image1.jpg', 'image2.jpg'],
     'project4': ['image1.jpg', 'image2.jpg'],

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Photography</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <nav class="menu">
+      <h1>Projects</h1>
+      <ul>
+        <li onclick="loadProject('project1')">Project 1</li>
+        <li onclick="loadProject('project2')">Project 2</li>
+        <!-- Add more projects here -->ß
+      </ul>
+    </nav>
+
+    <main class="viewer">
+      <img id="main-image" src="projects/project1/image1.jpg" alt="Project Image" onclick="nextImage()" />
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

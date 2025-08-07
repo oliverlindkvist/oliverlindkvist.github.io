@@ -9,18 +9,14 @@
 <body>
   <div class="container">
     <nav class="menu">
-      <h1> </h1>
-      <ul>
-        <li onclick="loadProject('project1')">iwbyf</li>
-        <li onclick="loadProject('project2')">loss</li>
-        <li onclick="loadProject('project3')">smörgås</li>
-        <li onclick="loadProject('project4')">about</li>
-        <!-- Add more projects here --> 
+      <h1></h1>
+      <ul id="project-list">
+        <!-- Loaded dynamically from projects.json -->
       </ul>
     </nav>
 
     <main class="viewer">
-      <img id="main-image" src="projects/project1/image1.jpg" alt="Project Image" onclick="nextImage()" />
+      <img id="main-image" src="index.jpg" alt="Landing Image" onclick="nextImage()" />
     </main>
   </div>
 

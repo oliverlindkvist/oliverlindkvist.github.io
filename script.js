@@ -1,33 +1,56 @@
-let currentProject = 'project1';
+let currentProject = null;
 let imageIndex = 0;
-let images = [];
+let images = {}; // All project images from JSON
+let imageList = []; // Active project image list
+
+// Load the list of projects
+async function loadProjects() {
+  try {
+    const response = await fetch('projects.json');
+    images = await response.json();
+
+    const menu = document.getElementById('project-list');
+    menu.innerHTML = '';
+
+    for (let project in images) {
+      const li = document.createElement('li');
+      li.textContent = project;
+      li.onclick = () => loadProject(project);
+      menu.appendChild(li);
+    }
+
+    // Show landing image by default
+    showLandingImage();
+  } catch (err) {
+    console.error('Failed to load project list:', err);
+  }
+}
+
+function showLandingImage() {
+  const img = document.getElementById('main-image');
+  img.src = 'index.jpg';
+  currentProject = null;
+  imageList = [];
+}
 
 function loadProject(projectName) {
   currentProject = projectName;
+  imageList = images[projectName];
   imageIndex = 0;
-
-  // You manually list the image filenames for each project
-  const imageMap = {
-    'project1': ['image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg',],
-    'project2': ['image1.jpg', 'image2.jpg'],
-    'project3': ['image1.jpg', 'image2.jpg'],
-    'project4': ['image1.jpg', 'image2.jpg'],
-  };
-
-  images = imageMap[projectName];
   updateImage();
 }
 
 function nextImage() {
-  if (images.length === 0) return;
-  imageIndex = (imageIndex + 1) % images.length;
+  if (!currentProject || imageList.length === 0) return;
+
+  imageIndex = (imageIndex + 1) % imageList.length;
   updateImage();
 }
 
 function updateImage() {
   const img = document.getElementById('main-image');
-  img.src = `projects/${currentProject}/${images[imageIndex]}`;
+  img.src = `projects/${currentProject}/${imageList[imageIndex]}`;
 }
 
 // Initialize
-loadProject('project1');
+loadProjects();

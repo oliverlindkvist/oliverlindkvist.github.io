@@ -48,7 +48,7 @@ body, html {
 }
 
 .viewer img {
-  max-width: 300px;  /* limit width */
+  max-width: 100px;  /* limit width */
   height: auto;      /* keep aspect ratio ok */
   cursor: pointer;
 }

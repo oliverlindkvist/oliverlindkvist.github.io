@@ -27,7 +27,7 @@ async function loadProjects() {
 
 function showLandingImage() {
   const img = document.getElementById('main-image');
-  img.src = './index.jpg'; // ensure relative path
+  img.src = './index.JPG'; // ensure relative path
   currentProject = null;
   imageList = [];
 }

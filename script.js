@@ -43,9 +43,8 @@ function loadProject(projectName) {
     viewer.innerHTML = `
       <div class="about-text">
         <h2>About Me</h2>
-        <p>I am a photographer based in Stockholm, working in digitisation at the national library.
-        My work explores the relationship between archival preservation and creative expression.</p>
-        <p>Contact: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+        <p>Oliver Lindkvist is a Stockholm based photographer working both with cultural heritage digitization and personal, long-term documentary projects. </p>
+        <p>Enquiries: <a href="mailto:oliver.lindkvist@me.com">oliver.lindkvist@me.com</a></p>
       </div>
     `;
     return;

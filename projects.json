@@ -10,6 +10,11 @@
     "loss": ["image1.jpg", "image2.jpg"],
     "smörgås": ["LIVETSPDF-1_1.jpg", "LIVETSPDF-1.jpg", "LIVETSPDF-2.jpg", "LIVETSPDF-3.jpg",  "LIVETSPDF-4.jpg",  "LIVETSPDF-5.jpg",  "LIVETSPDF-6.jpg",  "LIVETSPDF-7.jpg" ,  "LIVETSPDF-8.jpg",  "LIVETSPDF-9.jpg",  "LIVETSPDF-10.jpg",  "LIVETSPDF-11.jpg",  "LIVETSPDF-12.jpg",  "LIVETSPDF-13.jpg",  "LIVETSPDF-14.jpg",  "LIVETSPDF-15.jpg",  "LIVETSPDF-16.jpg",  "LIVETSPDF-17.jpg",  "LIVETSPDF-18.jpg",  "LIVETSPDF-19.jpg",  "LIVETSPDF-20.jpg",  "LIVETSPDF-21.jpg",  "LIVETSPDF-22.jpg",  "LIVETSPDF-23.jpg",  "LIVETSPDF-24.jpg",  "LIVETSPDF-25.jpg",  "LIVETSPDF-26.jpg",  "LIVETSPDF-27.jpg",  "LIVETSPDF-28.jpg",  "LIVETSPDF-29.jpg"],
     "portraits": ["image1.jpg"],
+    "mid 30s": [
+  "1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg",
+  "6.jpg", "7.jpg", "8.jpg", "9.jpg", "10.jpg",
+  "11.jpg", "12.jpg", "13.jpg", "14.jpg", "15.jpg", "16.jpg" , "17.jpg", "18.jpg", "19.jpg", "20.jpg"
+],
     "about": ["image1.jpg"]
     
   }

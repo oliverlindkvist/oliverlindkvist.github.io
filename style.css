@@ -48,9 +48,12 @@ body, html {
 }
 
 .viewer img {
-  max-width: 100px;  /* limit width */
-  height: auto;      /* keep aspect ratio ok */
+  width: auto;         /* use natural width unless constrained */
+  max-width: 300px;    /* never larger than 300px */
+  height: auto;        /* keep aspect ratio */
+  max-height: 90vh;    /* optional: prevent very tall images */
   cursor: pointer;
+  object-fit: contain; /* keep image proportions */
 }
 
 .about-text {

@@ -26,16 +26,33 @@ async function loadProjects() {
 }
 
 function showLandingImage() {
-  const img = document.getElementById('main-image');
-  img.src = './index.JPG'; // ensure relative path
+  const viewer = document.querySelector('.viewer');
+  viewer.innerHTML = `<img id="main-image" src="./index.JPG" alt="Landing Image" onclick="nextImage()" />`;
   currentProject = null;
   imageList = [];
 }
 
 function loadProject(projectName) {
   currentProject = projectName;
-  imageList = images[projectName];
   imageIndex = 0;
+
+  const viewer = document.querySelector('.viewer');
+
+  // Special handling for "about"
+  if (projectName.toLowerCase() === 'about') {
+    viewer.innerHTML = `
+      <div class="about-text">
+        <h2>About Me</h2>
+        <p>I am a photographer based in Stockholm, working in digitisation at the national library.
+        My work explores the relationship between archival preservation and creative expression.</p>
+        <p>Contact: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+      </div>
+    `;
+    return;
+  }
+
+  // Otherwise load images
+  imageList = images[projectName];
   updateImage();
 }
 
@@ -46,8 +63,8 @@ function nextImage() {
 }
 
 function updateImage() {
-  const img = document.getElementById('main-image');
-  img.src = `./projects/${currentProject}/${imageList[imageIndex]}`; 
+  const viewer = document.querySelector('.viewer');
+  viewer.innerHTML = `<img id="main-image" src="./projects/${currentProject}/${imageList[imageIndex]}" alt="" onclick="nextImage()" />`;
 }
 
 // Initialize

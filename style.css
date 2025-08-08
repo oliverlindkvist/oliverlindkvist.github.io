@@ -19,7 +19,6 @@ body, html {
 .menu {
   width: 200px;
   padding: 20px;
-  border-right: 0px solid #ccc;
 }
 
 .menu h1 {

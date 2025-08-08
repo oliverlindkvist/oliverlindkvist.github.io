@@ -1,12 +1,12 @@
 let currentProject = null;
 let imageIndex = 0;
-let images = {}; // All project images from JSON
-let imageList = []; // Active project image list
+let images = {}; 
+let imageList = []; 
 
-// Load the list of projects
+// Load project list from JSON
 async function loadProjects() {
   try {
-    const response = await fetch('projects.json');
+    const response = await fetch('./projects.json'); // explicit relative path
     images = await response.json();
 
     const menu = document.getElementById('project-list');
@@ -19,7 +19,6 @@ async function loadProjects() {
       menu.appendChild(li);
     }
 
-    // Show landing image by default
     showLandingImage();
   } catch (err) {
     console.error('Failed to load project list:', err);
@@ -28,7 +27,7 @@ async function loadProjects() {
 
 function showLandingImage() {
   const img = document.getElementById('main-image');
-  img.src = 'index.jpg';
+  img.src = './index.jpg'; // ensure relative path
   currentProject = null;
   imageList = [];
 }
@@ -42,14 +41,13 @@ function loadProject(projectName) {
 
 function nextImage() {
   if (!currentProject || imageList.length === 0) return;
-
   imageIndex = (imageIndex + 1) % imageList.length;
   updateImage();
 }
 
 function updateImage() {
   const img = document.getElementById('main-image');
-  img.src = `projects/${currentProject}/${imageList[imageIndex]}`;
+  img.src = `./projects/${currentProject}/${imageList[imageIndex]}`; 
 }
 
 // Initialize

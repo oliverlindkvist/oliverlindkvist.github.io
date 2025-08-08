@@ -42,7 +42,7 @@ function loadProject(projectName) {
   if (projectName.toLowerCase() === 'about') {
     viewer.innerHTML = `
       <div class="about-text">
-        <h2>About Me</h2>
+        <h2>Oliver Lindkvist</h2>
         <p>Oliver Lindkvist is a Stockholm based photographer working both with cultural heritage digitization and personal, long-term documentary projects. </p>
         <p>Enquiries: <a href="mailto:oliver.lindkvist@me.com">oliver.lindkvist@me.com</a></p>
       </div>

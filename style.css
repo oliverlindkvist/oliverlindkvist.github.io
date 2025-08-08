@@ -49,7 +49,7 @@ body, html {
 
 .viewer img {
   width: auto;         /* use natural width unless constrained */
-  max-width: 1200px;    /* never larger than 300px */
+  max-width: 1100px;    /* never larger than 300px */
   height: auto;        /* keep aspect ratio */
   max-height: 90vh;    /* optional: prevent very tall images */
   cursor: pointer;

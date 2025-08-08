@@ -2,5 +2,6 @@
     "iwbyf": ["image1.jpg", "image2.jpg", "image3.jpg"],
     "loss": ["image1.jpg", "image2.jpg"],
     "smörgås": ["image1.jpg", "image2.jpg"],
-    "about": ["image1.jpg"]
+    "about": ["image1.jpg"],
+    "Portraits": ["image1.jpg"]
   }

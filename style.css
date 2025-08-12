@@ -48,12 +48,27 @@ body, html {
 }
 
 .viewer img {
-  width: auto;         /* use natural width unless constrained */
-  max-width: 1100px;    /* never larger than 300px */
-  height: auto;        /* keep aspect ratio */
-  max-height: 90vh;    /* optional: prevent very tall images */
+  width: auto;
+  max-width: 90%;    /* Responsive scaling */
+  height: auto;
+  max-height: 90vh;
   cursor: pointer;
-  object-fit: contain; /* keep image proportions */
+  object-fit: contain;
+}
+
+.viewer video {
+  max-width: 90%;
+  height: auto;
+  max-height: 90vh;
+  display: block;
+  margin: 0 auto;
+}
+
+.video-description {
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: center;
+  max-width: 600px;
 }
 
 .about-text {

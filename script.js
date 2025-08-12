@@ -1,12 +1,12 @@
 let currentProject = null;
 let imageIndex = 0;
-let images = {}; 
-let imageList = []; 
+let images = {};
+let imageList = [];
 
 // Load project list from JSON
 async function loadProjects() {
   try {
-    const response = await fetch('./projects.json'); // explicit relative path
+    const response = await fetch('./projects.json');
     images = await response.json();
 
     const menu = document.getElementById('project-list');
@@ -38,13 +38,28 @@ function loadProject(projectName) {
 
   const viewer = document.querySelector('.viewer');
 
-  // Special handling for "about"
+  // About page
   if (projectName.toLowerCase() === 'about') {
     viewer.innerHTML = `
       <div class="about-text">
         <h2>Oliver Lindkvist</h2>
-        <p>is a Stockholm based photographer engaged in cultural heritage digitization, photojournalism and long-term documentary projects. </p>
+        <p>is a Stockholm based photographer engaged in cultural heritage digitization, photojournalism and long-term documentary projects.</p>
         <p>Enquiries: <a href="mailto:oliver.lindkvist@me.com">oliver.lindkvist@me.com</a></p>
+      </div>
+    `;
+    return;
+  }
+
+  // Video section
+  if (projectName.toLowerCase() === 'video') {
+    const videoData = images.video;
+    viewer.innerHTML = `
+      <div style="text-align:center; max-width:800px; width:100%;">
+        <video controls>
+          <source src="./projects/video/${videoData.file}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p class="video-description">${videoData.description}</p>
       </div>
     `;
     return;

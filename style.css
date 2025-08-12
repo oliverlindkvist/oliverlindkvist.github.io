@@ -50,11 +50,14 @@ body, html {
 
 .viewer img {
   width: auto;
-  max-width: 300px;   /* cap image width */
+  max-width: 1000px;
   height: auto;
   max-height: 90vh;
   cursor: pointer;
   object-fit: contain;
+  flex-shrink: 0;
+  flex-grow: 0;
+  align-self: center;
 }
 
 .about-text {

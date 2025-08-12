@@ -63,7 +63,7 @@ function loadProject(projectName) {
         </div>
       </div>
       <div class="video-description">
-        <p>Pizzeria Roma — a short film exploring community, tradition, and the quiet poetry of everyday life.</p>
+        <p>Pizzeria Roma </p>
       </div>
     `;
     return;

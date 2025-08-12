@@ -1,11 +1,14 @@
 {
   "mid 30s": [
     "1.JPG", "2.JPG", "3.JPG", "4.JPG", "5.JPG",
-    "6.JPG", "7.JPG", "8.JPG", "9.jpg", "10.JPG",
+    "6.JPG", "7.JPG", "8.JPG", "9.JPG", "10.JPG",
     "11.JPG", "12.JPG", "13.JPG", "14.JPG", "15.JPG",
     "16.JPG", "17.JPG", "18.JPG", "19.JPG", "20.JPG"
   ],
-  "loss": ["image1.jpg", "image2.jpg"],
+  "loss": [
+    "image1.jpg",
+    "image2.jpg"
+  ],
   "smörgås": [
     "LIVETSPDF-1_1.jpg", "LIVETSPDF-1.jpg", "LIVETSPDF-2.jpg", "LIVETSPDF-3.jpg",
     "LIVETSPDF-4.jpg", "LIVETSPDF-5.jpg", "LIVETSPDF-6.jpg", "LIVETSPDF-7.jpg",
@@ -25,8 +28,8 @@
     "44.jpg", "45.jpg", "46.jpg", "47.jpg", "48.jpg", "49.jpg", "50.jpg", "51.jpg"
   ],
   "video": {
-    "file": "PRts.mp4",
-    "description": "Pizzera Roma"
+    "embed": "https://player.vimeo.com/video/1109333539?badge=0&autopause=0&player_id=0&app_id=58479",
+    "description": "Pizzeria Roma"
   },
-  "about": ["image1.jpg"]
+  "about": []
 }

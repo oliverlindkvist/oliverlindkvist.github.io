@@ -1,9 +1,8 @@
 let currentProject = null;
 let imageIndex = 0;
-let images = {};
-let imageList = [];
+let images = {}; 
+let imageList = []; 
 
-// Load project list from JSON
 async function loadProjects() {
   try {
     const response = await fetch('./projects.json');
@@ -38,7 +37,7 @@ function loadProject(projectName) {
 
   const viewer = document.querySelector('.viewer');
 
-  // About page
+  // About section
   if (projectName.toLowerCase() === 'about') {
     viewer.innerHTML = `
       <div class="about-text">
@@ -52,20 +51,25 @@ function loadProject(projectName) {
 
   // Video section
   if (projectName.toLowerCase() === 'video') {
-    const videoData = images.video;
     viewer.innerHTML = `
-      <div style="text-align:center; max-width:800px; width:100%;">
-        <video controls>
-          <source src="./projects/video/${videoData.file}" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <p class="video-description">${videoData.description}</p>
+      <div class="video-wrapper">
+        <div style="padding:76.06% 0 0 0;position:relative;">
+          <iframe src="https://player.vimeo.com/video/1109333539?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;"
+            title="PIZZERIA ROMA"></iframe>
+        </div>
+      </div>
+      <div class="video-description">
+        <p>Pizzeria Roma — a short film exploring community, tradition, and the quiet poetry of everyday life.</p>
       </div>
     `;
     return;
   }
 
-  // Otherwise load images
+  // Images section
   imageList = images[projectName];
   updateImage();
 }
@@ -81,5 +85,5 @@ function updateImage() {
   viewer.innerHTML = `<img id="main-image" src="./projects/${currentProject}/${imageList[imageIndex]}" alt="" onclick="nextImage()" />`;
 }
 
-// Initialize
+// Init
 loadProjects();

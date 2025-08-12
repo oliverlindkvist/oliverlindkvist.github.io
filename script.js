@@ -63,7 +63,7 @@ function loadProject(projectName) {
         </div>
       </div>
       <div class="video-description">
-        <p>Pizzeria Roma </p>
+        <p>Pizzeria Roma</p>
       </div>
     `;
     return;

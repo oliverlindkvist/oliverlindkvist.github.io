@@ -43,9 +43,9 @@ body, html {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Aligns to top instead of center */
+  justify-content: center; /* center content vertically */
   align-items: center;
-  padding: 10px 20px 20px; /* Top padding controls how far down it starts */
+  padding: 20px;
 }
 
 .viewer img {
@@ -75,10 +75,20 @@ body, html {
   text-decoration: underline;
 }
 
+/* Updated video styling */
 .video-wrapper {
   width: 100%;
-  max-width: 800px;
-  margin-bottom: 15px;
+  max-width: 1000px;         /* match image width */
+  aspect-ratio: 1000 / 761;  /* maintain video proportions */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 .video-description {
@@ -86,4 +96,5 @@ body, html {
   font-size: 14px;
   line-height: 1.4;
   text-align: center;
+  margin-top: 10px;
 }

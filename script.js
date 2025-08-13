@@ -49,16 +49,19 @@ function loadProject(projectName) {
     return;
   }
 
-  // Video section
+  // Pizzeria Roma video section
   if (projectName.toLowerCase() === 'pizzeria roma') {
     viewer.innerHTML = `
       <div class="video-wrapper">
-        <div style="padding:76.06% 0 0 0;position:relative;">
-          <iframe src="https://player.vimeo.com/video/1109333539?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1000" height="761" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="PIZZERIA ROMA"></iframe>
-        </div>
+        <iframe 
+          src="https://player.vimeo.com/video/1109333539?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          title="PIZZERIA ROMA">
+        </iframe>
       </div>
       <div class="video-description">
-        <p></p>
+        <p>Pizzeria Roma - Trailer</p>
       </div>
     `;
     return;

@@ -58,7 +58,7 @@ function loadProject(projectName) {
         </div>
       </div>
       <div class="video-description">
-        <p>Pizzeria Roma - Trailer</p>
+        <p></p>
       </div>
     `;
     return;

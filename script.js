@@ -50,7 +50,7 @@ function loadProject(projectName) {
   }
 
   // Video section
-  if (projectName.toLowerCase() === 'video') {
+  if (projectName.toLowerCase() === 'pizzeria roma') {
     viewer.innerHTML = `
       <div class="video-wrapper">
         <div style="padding:76.06% 0 0 0;position:relative;">

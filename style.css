@@ -60,6 +60,13 @@ body, html {
   align-self: center;
 }
 
+.about-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 20px; /* centers and adds space below */
+}
+
 .about-text {
   max-width: 600px;
   font-size: 16px;

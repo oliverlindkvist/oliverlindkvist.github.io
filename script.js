@@ -37,17 +37,24 @@ function loadProject(projectName) {
 
   const viewer = document.querySelector('.viewer');
 
-  // About section
-  if (projectName.toLowerCase() === 'about') {
-    viewer.innerHTML = `
-      <div class="about-text">
-        <h2>Oliver Lindkvist</h2>
-        <p>is a Stockholm based photographer engaged in cultural heritage digitization, photojournalism and long-term documentary projects.</p>
-        <p>Enquiries: <a href="mailto:oliver.lindkvist@me.com">oliver.lindkvist@me.com</a></p>
-      </div>
-    `;
-    return;
+// About section
+if (projectName.toLowerCase() === 'about') {
+  let imageHtml = '';
+  
+  if (project.images && project.images.length > 0) {
+    imageHtml = `<img src="images/${project.images[0]}" alt="About" class="about-image">`;
   }
+
+  viewer.innerHTML = `
+    <div class="about-text">
+      ${imageHtml}
+      <h2>Oliver Lindkvist</h2>
+      <p>is a Stockholm based photographer engaged in cultural heritage digitization, photojournalism and long-term documentary projects.</p>
+      <p>Enquiries: <a href="mailto:oliver.lindkvist@me.com">oliver.lindkvist@me.com</a></p>
+    </div>
+  `;
+  return;
+}
 
   // Pizzeria Roma video section
   if (projectName.toLowerCase() === 'pizzeria roma') {
@@ -61,7 +68,7 @@ function loadProject(projectName) {
         </iframe>
       </div>
       <div class="video-description">
-        <p>Pizzeria Roma - Trailer</p>
+        <p></p>
       </div>
     `;
     return;

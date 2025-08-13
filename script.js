@@ -40,9 +40,9 @@ function loadProject(projectName) {
 // About section
 if (projectName.toLowerCase() === 'about') {
   let imageHtml = '';
-  
-  if (project.images && project.images.length > 0) {
-    imageHtml = `<img src="images/${project.images[0]}" alt="About" class="about-image">`;
+
+  if (images['about'] && images['about'].length > 0) {
+    imageHtml = `<img src="./projects/about/${images['about'][0]}" alt="About" class="about-image">`;
   }
 
   viewer.innerHTML = `

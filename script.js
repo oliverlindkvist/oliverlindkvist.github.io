@@ -2,7 +2,6 @@ let currentProject = null;
 let imageIndex = 0;
 let images = {};
 let imageList = [];
-let activeImgIndex = 0; // track which <img> is active for crossfade
 
 async function loadProjects() {
   try {
@@ -28,10 +27,7 @@ async function loadProjects() {
 function showLandingImage() {
   const viewer = document.querySelector('.viewer');
   viewer.innerHTML = `
-    <div class="image-wrapper">
-      <img id="main-image-0" class="fade-image visible" src="./index.JPG" alt="Landing Image" onclick="nextImage()" />
-      <img id="main-image-1" class="fade-image" style="display:none" alt="" onclick="nextImage()" />
-    </div>
+    <img id="main-image" class="fade-image visible" src="./index.JPG" alt="Landing Image" onclick="nextImage()" />
   `;
   currentProject = null;
   imageList = [];
@@ -81,10 +77,7 @@ function loadProject(projectName) {
 
   // Image section
   viewer.innerHTML = `
-    <div class="image-wrapper">
-      <img id="main-image-0" class="fade-image visible" alt="" onclick="nextImage()" />
-      <img id="main-image-1" class="fade-image" style="display:none" alt="" onclick="nextImage()" />
-    </div>
+    <img id="main-image" class="fade-image visible" alt="" onclick="nextImage()" />
   `;
 
   imageList = images[projectName];
@@ -98,27 +91,17 @@ function nextImage() {
 }
 
 function updateImage() {
-  const nextImgIndex = 1 - activeImgIndex; // switch between 0 and 1
-  const currentImg = document.getElementById(`main-image-${activeImgIndex}`);
-  const nextImg = document.getElementById(`main-image-${nextImgIndex}`);
-
+  const img = document.getElementById('main-image');
   const newSrc = `./projects/${currentProject}/${imageList[imageIndex]}`;
+
+  img.classList.remove('visible'); // start fade-out
 
   const tempImg = new Image();
   tempImg.onload = () => {
-    nextImg.src = newSrc;
-    nextImg.style.display = 'block';
-
-    // trigger crossfade
-    currentImg.classList.remove('visible');
-    nextImg.classList.add('visible');
-
-    // after fade-out, hide old img
-    setTimeout(() => {
-      currentImg.style.display = 'none';
-    }, 600); // matches CSS transition duration
-
-    activeImgIndex = nextImgIndex;
+    img.src = newSrc;
+    requestAnimationFrame(() => {
+      img.classList.add('visible'); // fade back in
+    });
   };
   tempImg.src = newSrc;
 }

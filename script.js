@@ -1,7 +1,8 @@
 let currentProject = null;
 let imageIndex = 0;
-let images = {}; 
-let imageList = []; 
+let images = {};
+let imageList = [];
+let activeImgIndex = 0; // track which <img> is active for crossfade
 
 async function loadProjects() {
   try {
@@ -26,7 +27,12 @@ async function loadProjects() {
 
 function showLandingImage() {
   const viewer = document.querySelector('.viewer');
-  viewer.innerHTML = `<img id="main-image" src="./index.JPG" alt="Landing Image" onclick="nextImage()" />`;
+  viewer.innerHTML = `
+    <div class="image-wrapper">
+      <img id="main-image-0" class="fade-image visible" src="./index.JPG" alt="Landing Image" onclick="nextImage()" />
+      <img id="main-image-1" class="fade-image" style="display:none" alt="" onclick="nextImage()" />
+    </div>
+  `;
   currentProject = null;
   imageList = [];
 }
@@ -37,24 +43,23 @@ function loadProject(projectName) {
 
   const viewer = document.querySelector('.viewer');
 
-// About section
-if (projectName.toLowerCase() === 'about') {
-  let imageHtml = '';
+  // About section
+  if (projectName.toLowerCase() === 'about') {
+    let imageHtml = '';
+    if (images['about'] && images['about'].length > 0) {
+      imageHtml = `<img src="./projects/about/${images['about'][0]}" alt="About" class="about-image">`;
+    }
 
-  if (images['about'] && images['about'].length > 0) {
-    imageHtml = `<img src="./projects/about/${images['about'][0]}" alt="About" class="about-image">`;
+    viewer.innerHTML = `
+      <div class="about-text">
+        ${imageHtml}
+        <h2>Oliver Lindkvist</h2>
+        <p>is a Stockholm based photographer engaged in cultural heritage digitization, photojournalism and long-term documentary projects.</p>
+        <p>Enquiries: <a href="mailto:oliver.lindkvist@me.com">oliver.lindkvist@me.com</a></p>
+      </div>
+    `;
+    return;
   }
-
-  viewer.innerHTML = `
-    <div class="about-text">
-      ${imageHtml}
-      <h2>Oliver Lindkvist</h2>
-      <p>is a Stockholm based photographer engaged in cultural heritage digitization, photojournalism and long-term documentary projects.</p>
-      <p>Enquiries: <a href="mailto:oliver.lindkvist@me.com">oliver.lindkvist@me.com</a></p>
-    </div>
-  `;
-  return;
-}
 
   // Pizzeria Roma video section
   if (projectName.toLowerCase() === 'pizzeria roma') {
@@ -74,7 +79,14 @@ if (projectName.toLowerCase() === 'about') {
     return;
   }
 
-  // Images section
+  // Image section
+  viewer.innerHTML = `
+    <div class="image-wrapper">
+      <img id="main-image-0" class="fade-image visible" alt="" onclick="nextImage()" />
+      <img id="main-image-1" class="fade-image" style="display:none" alt="" onclick="nextImage()" />
+    </div>
+  `;
+
   imageList = images[projectName];
   updateImage();
 }
@@ -86,8 +98,29 @@ function nextImage() {
 }
 
 function updateImage() {
-  const viewer = document.querySelector('.viewer');
-  viewer.innerHTML = `<img id="main-image" src="./projects/${currentProject}/${imageList[imageIndex]}" alt="" onclick="nextImage()" />`;
+  const nextImgIndex = 1 - activeImgIndex; // switch between 0 and 1
+  const currentImg = document.getElementById(`main-image-${activeImgIndex}`);
+  const nextImg = document.getElementById(`main-image-${nextImgIndex}`);
+
+  const newSrc = `./projects/${currentProject}/${imageList[imageIndex]}`;
+
+  const tempImg = new Image();
+  tempImg.onload = () => {
+    nextImg.src = newSrc;
+    nextImg.style.display = 'block';
+
+    // trigger crossfade
+    currentImg.classList.remove('visible');
+    nextImg.classList.add('visible');
+
+    // after fade-out, hide old img
+    setTimeout(() => {
+      currentImg.style.display = 'none';
+    }, 600); // matches CSS transition duration
+
+    activeImgIndex = nextImgIndex;
+  };
+  tempImg.src = newSrc;
 }
 
 // Init

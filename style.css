@@ -16,70 +16,108 @@ body, html {
   height: 100vh;
 }
 
-/* Left menu */
+/* Menu */
 .menu {
   width: 200px;
   padding: 20px;
-  background: white; /* fixed: no gray background */
+  background: white; /* restore original white */
 }
 
 .menu h1 {
-  font-size: 20px;
-  margin-bottom: 20px;
+  font-size: 18px;
+  margin-bottom: 10px;
   cursor: pointer;
   color: black;
   transition: color 0.2s ease;
 }
 
 .menu h1:hover {
-  color: gray; /* hover effect */
+  color: gray; /* subtle gray hover */
 }
 
-/* Project list */
 .menu ul {
   list-style: none;
 }
 
 .menu li {
-  margin-bottom: 10px;
-}
-
-.menu a {
-  text-decoration: none;
+  margin: 10px 0;
+  cursor: pointer;
+  font-size: 16px;
   color: black;
   transition: color 0.2s ease;
 }
 
-.menu a:hover {
-  color: gray; /* subtle gray, no underline */
+.menu li:hover {
+  color: gray; /* subtle gray hover */
+  text-decoration: none; /* remove underline */
 }
 
-/* Viewer (images / video) */
+/* Viewer */
 .viewer {
   flex-grow: 1;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  flex-direction: column;
+  justify-content: center; /* center vertically */
+  align-items: center;     /* center horizontally */
+  padding: 20px;
 }
 
+/* Images */
 .viewer img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain; /* keeps images from overflowing */
-  display: block;
+  width: auto;
+  max-width: 1000px; /* restored max-width */
+  height: auto;
+  max-height: 90vh;
+  cursor: pointer;
+  object-fit: contain;
+  flex-shrink: 0;
+  flex-grow: 0;
+  align-self: center;
 }
 
-/* Video container */
-.video-container {
-  max-width: 100%;
-  max-height: 100%;
-  display: none; /* hidden until needed */
+/* About section */
+.about-image {
+  max-width: 90%;
+  height: auto;
+  display: block;
+  margin: 0 auto 20px;
 }
 
-.video-container video {
-  max-width: 100%;
-  max-height: 100%;
-  display: block;
-  object-fit: contain; /* prevents black borders/odd sizing */
+.about-text {
+  max-width: 600px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.about-text h2 {
+  margin-bottom: 10px;
+}
+
+.about-text a {
+  color: black;
+  text-decoration: underline;
+}
+
+/* Video */
+.video-wrapper {
+  width: 100%;
+  max-width: 1000px;         /* match image width */
+  aspect-ratio: 1000 / 761;  /* maintain video proportions */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-description {
+  max-width: 800px;
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: center;
+  margin-top: 10px;
 }

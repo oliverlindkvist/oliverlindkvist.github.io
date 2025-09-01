@@ -1,9 +1,11 @@
+/* Reset */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* Base */
 body, html {
   height: 100%;
   font-family: sans-serif;
@@ -11,107 +13,72 @@ body, html {
   color: black;
 }
 
+/* Layout */
 .container {
   display: flex;
   height: 100vh;
 }
 
+/* Sidebar menu */
 .menu {
-  width: 200px;
+  width: 220px;
   padding: 20px;
+  background: #f8f8f8;
+  display: flex;
+  flex-direction: column;
 }
 
-.menu h1 {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.menu ul {
-  list-style: none;
-}
-
-.menu li {
-  margin: 10px 0;
+/* Site header */
+.site-header {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding: 8px;
   cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-.menu li:hover {
-  text-decoration: underline;
+.site-header:hover {
+  background-color: #e0e0e0; /* gray hover */
 }
 
+/* Project list */
+#project-list {
+  list-style: none;
+  flex-grow: 1;
+}
+
+#project-list li {
+  margin-bottom: 12px;
+}
+
+#project-list a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  display: block;
+  padding: 6px 8px;
+  transition: background-color 0.2s ease;
+}
+
+#project-list a:hover {
+  background-color: #e0e0e0; /* gray hover */
+}
+
+/* Viewer (main image area) */
 .viewer {
   flex-grow: 1;
   display: flex;
-  justify-content: center;   /* center horizontally */
-  align-items: center;       /* center vertically */
-  padding: 20px;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Smooth fade effect */
-.fade-image {
-  max-width: 1000px;
-  max-height: 90vh;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  cursor: pointer;
-
-  opacity: 0;
-  transition: opacity 0.6s ease-in-out;
-  
-  /* keeps image centered in flexbox */
-  margin: auto;
-  display: block;
-}
-
-.fade-image.visible {
-  opacity: 1;
-}
-
-.about-image {
-  max-width: 90%;
-  height: auto;
-  display: block;
-  margin: 0 auto 20px; /* centers and adds space below */
-}
-
-.about-text {
-  max-width: 600px;
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-.about-text h2 {
-  margin-bottom: 10px;
-}
-
-.about-text a {
-  color: black;
-  text-decoration: underline;
-}
-
-/* Updated video styling */
-.video-wrapper {
-  width: 100%;
-  max-width: 1000px;         /* match image width */
-  aspect-ratio: 1000 / 761;  /* maintain video proportions */
-  display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  position: relative;
 }
 
-.video-wrapper iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-.video-description {
-  max-width: 800px;
-  font-size: 14px;
-  line-height: 1.4;
-  text-align: center;
-  margin-top: 10px;
+#main-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  cursor: pointer;
+  transition: opacity 0.5s ease;
 }

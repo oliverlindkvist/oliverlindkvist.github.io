@@ -3,6 +3,7 @@ let imageIndex = 0;
 let images = {};
 let imageList = [];
 
+// Load projects from JSON
 async function loadProjects() {
   try {
     const response = await fetch('./projects.json');
@@ -19,20 +20,31 @@ async function loadProjects() {
     }
 
     showLandingImage();
+
+    // Add click listener for menu title to restore landing image
+    const siteTitle = document.getElementById('site-title');
+    if (siteTitle) {
+      siteTitle.addEventListener('click', () => {
+        showLandingImage();
+      });
+    }
+
   } catch (err) {
     console.error('Failed to load project list:', err);
   }
 }
 
+// Show landing image
 function showLandingImage() {
   const viewer = document.querySelector('.viewer');
   viewer.innerHTML = `
-    <img id="main-image" class="fade-image visible" src="./index.JPG" alt="Landing Image" onclick="nextImage()" />
+    <img id="main-image" class="fade-image visible" src="./index.JPG" alt="Landing Image" />
   `;
   currentProject = null;
   imageList = [];
 }
 
+// Load a project
 function loadProject(projectName) {
   currentProject = projectName;
   imageIndex = 0;
@@ -84,12 +96,14 @@ function loadProject(projectName) {
   updateImage();
 }
 
+// Next image in project
 function nextImage() {
   if (!currentProject || imageList.length === 0) return;
   imageIndex = (imageIndex + 1) % imageList.length;
   updateImage();
 }
 
+// Update main image with fade
 function updateImage() {
   const img = document.getElementById('main-image');
   const newSrc = `./projects/${currentProject}/${imageList[imageIndex]}`;
